@@ -8,7 +8,8 @@ def generate_launch_description():
     # Uruchomienie launch pliku kamery Orbbec (przez ExecuteProcess)
     orbec_camera_launch = ExecuteProcess(
         cmd=[
-            'ros2', 'launch', 'realsense2_camera', 'rs_pointcloud_launch.py',
+            'ros2', 'launch', 'realsense2_camera', 'rs_launch.py',
+            'pointcloud.enable:=true',
         ],
         output='screen'
     )

@@ -8,15 +8,15 @@ def generate_launch_description():
     # Uruchomienie launch pliku kamery Orbbec (przez ExecuteProcess)
     orbec_camera_launch = ExecuteProcess(
         cmd=[
-            'ros2', 'launch', 'azure_kinect_ros_driver', 'driver.launch.py',
-            'fps:=30',
+            'ros2', 'launch', 'orbbec_camera', 'femto_mega.launch.py',
+            'enable_colored_point_cloud:=true',
         ],
         output='screen'
     )
 
     # Uruchomienie ros2 bag record --all
     rosbag_record = ExecuteProcess(
-        cmd=['ros2', 'bag', 'record', '--all', '-o', 'azure_kinect_dk_bag'],
+        cmd=['ros2', 'bag', 'record', '--all', '-o', 'femto_mega_bag'],
         output='screen'
     )
 
