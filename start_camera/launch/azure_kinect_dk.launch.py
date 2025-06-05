@@ -11,6 +11,7 @@ def generate_launch_description():
             'ros2', 'launch', 'azure_kinect_ros_driver', 'driver.launch.py',
             'fps:=30',
             'depth_mode:=NFOV_UNBINNED',
+            'color_resolution:=1080P',
         ],
         output='screen'
     )
