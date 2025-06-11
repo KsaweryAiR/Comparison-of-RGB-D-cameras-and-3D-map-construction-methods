@@ -1,3 +1,0 @@
-[console_scripts]
-gnss_local_frame_node = fix_tf_map.gnss_local_frame_node:main
-
