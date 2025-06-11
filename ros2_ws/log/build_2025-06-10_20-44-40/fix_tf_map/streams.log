@@ -1,0 +1,34 @@
+[0.695s] Invoking command in '/root/Shared/ros2_ws/src/fix_tf_map': PYTHONPATH=/root/Shared/ros2_ws/build/fix_tf_map/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/Shared/ros2_ws/install/fix_tf_map/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/fix_tf_map build --build-base /root/Shared/ros2_ws/build/fix_tf_map/build install --record /root/Shared/ros2_ws/build/fix_tf_map/install.log --single-version-externally-managed install_data
+[0.943s] running egg_info
+[0.944s] creating ../../build/fix_tf_map/fix_tf_map.egg-info
+[0.945s] writing ../../build/fix_tf_map/fix_tf_map.egg-info/PKG-INFO
+[0.945s] writing dependency_links to ../../build/fix_tf_map/fix_tf_map.egg-info/dependency_links.txt
+[0.945s] writing entry points to ../../build/fix_tf_map/fix_tf_map.egg-info/entry_points.txt
+[0.954s] writing requirements to ../../build/fix_tf_map/fix_tf_map.egg-info/requires.txt
+[0.954s] writing top-level names to ../../build/fix_tf_map/fix_tf_map.egg-info/top_level.txt
+[0.954s] writing manifest file '../../build/fix_tf_map/fix_tf_map.egg-info/SOURCES.txt'
+[0.956s] reading manifest file '../../build/fix_tf_map/fix_tf_map.egg-info/SOURCES.txt'
+[0.956s] adding license file 'LICENSE'
+[0.957s] writing manifest file '../../build/fix_tf_map/fix_tf_map.egg-info/SOURCES.txt'
+[0.957s] running build
+[0.957s] running build_py
+[0.957s] creating /root/Shared/ros2_ws/build/fix_tf_map/build
+[0.957s] creating /root/Shared/ros2_ws/build/fix_tf_map/build/lib
+[0.958s] creating /root/Shared/ros2_ws/build/fix_tf_map/build/lib/fix_tf_map
+[0.958s] copying fix_tf_map/__init__.py -> /root/Shared/ros2_ws/build/fix_tf_map/build/lib/fix_tf_map
+[0.958s] running install
+[0.959s] running install_lib
+[0.959s] creating /root/Shared/ros2_ws/install/fix_tf_map/lib/python3.10/site-packages/fix_tf_map
+[0.960s] copying /root/Shared/ros2_ws/build/fix_tf_map/build/lib/fix_tf_map/__init__.py -> /root/Shared/ros2_ws/install/fix_tf_map/lib/python3.10/site-packages/fix_tf_map
+[0.960s] byte-compiling /root/Shared/ros2_ws/install/fix_tf_map/lib/python3.10/site-packages/fix_tf_map/__init__.py to __init__.cpython-310.pyc
+[0.960s] running install_data
+[0.961s] creating /root/Shared/ros2_ws/install/fix_tf_map/share/ament_index
+[0.961s] creating /root/Shared/ros2_ws/install/fix_tf_map/share/ament_index/resource_index
+[0.961s] creating /root/Shared/ros2_ws/install/fix_tf_map/share/ament_index/resource_index/packages
+[0.961s] copying resource/fix_tf_map -> /root/Shared/ros2_ws/install/fix_tf_map/share/ament_index/resource_index/packages
+[0.961s] copying package.xml -> /root/Shared/ros2_ws/install/fix_tf_map/share/fix_tf_map
+[0.961s] running install_egg_info
+[0.964s] Copying ../../build/fix_tf_map/fix_tf_map.egg-info to /root/Shared/ros2_ws/install/fix_tf_map/lib/python3.10/site-packages/fix_tf_map-0.0.0-py3.10.egg-info
+[0.965s] running install_scripts
+[0.988s] writing list of installed files to '/root/Shared/ros2_ws/build/fix_tf_map/install.log'
+[1.022s] Invoked command in '/root/Shared/ros2_ws/src/fix_tf_map' returned '0': PYTHONPATH=/root/Shared/ros2_ws/build/fix_tf_map/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/Shared/ros2_ws/install/fix_tf_map/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/fix_tf_map build --build-base /root/Shared/ros2_ws/build/fix_tf_map/build install --record /root/Shared/ros2_ws/build/fix_tf_map/install.log --single-version-externally-managed install_data
