@@ -35,18 +35,51 @@ Dodaj tutaj zrzuty ekranu z RViz, graficzne diagramy przepływu danych lub inne 
 git clone https://github.com/KsaweryAiR/Comparison-of-RGB-D-cameras-and-3D-map-construction-methods.git
 ```
 
+```bash
+cd Comparison-of-RGB-D-cameras-and-3D-map-construction-methods/
+```
+
 ## 🐳 Docker – Instalacja dla każdej kamery
 
 ### 1️⃣ Azure Kinect DK
 
-#### 🔧 Budowanie obrazu
+#### 🔧 Budowanie obrazu (Podłącz kamerę do usb!!)
 
 ```bash
-cd Comparison-of-RGB-D-cameras-and-3D-map-construction-methods/camera_inst
+cd camera_installer/kinect-camera-docker/
+```
+instalacja systemu i driver kamery wraz z wszystkimi zależnościami
+```bash
+docker build -t kinect_rviz .
+```
+włączenie kontenera
+```bash
+bash run_docker.sh
+```
+Akceptacja i instalacja zasad użytkowania (w kontenerze)
+```bash
+cd azure_kinect_notes
 ```
 
 ```bash
-docker build -t azure_kinect_cam docker/azure_kinect/
+bash install_azure_kinect_camera_u_22.04.sh
+```
+Budowa paczki ros driver kinect
+
+```bash ros2_ws
+cd .. /cd ros2_ws
+```
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+```bash
+colcon build
+```
+
+```bash
+source install/setup.bash
 ```
 
 #### 🚀 Uruchamianie kontenera
