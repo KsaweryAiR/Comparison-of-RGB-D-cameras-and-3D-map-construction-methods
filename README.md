@@ -13,18 +13,6 @@ W tym repozytorium znajdują się pliki `Dockerfile` dla trzech różnych kamer 
 - `camera_processing_pkg` – obsługa przetwarzania danych z kamer
 - `camera_launch_pkg` – konfiguracja i uruchamianie kamer
 
-> 🔧 **TODO**: Uzupełnij dokładne nazwy kamer i funkcje paczek.
-
----
-
-## 🖼️ Przykładowe zdjęcia / Wizualizacje
-
-Dodaj tutaj zrzuty ekranu z RViz, graficzne diagramy przepływu danych lub inne ilustracje pokazujące działanie systemu.
-
-```
-📷 [Tutaj dodaj obrazek z RViz]
-```
-
 ### Wymagania:
 - Docker
 - System z obsługą USB 
@@ -35,119 +23,102 @@ Dodaj tutaj zrzuty ekranu z RViz, graficzne diagramy przepływu danych lub inne 
 git clone https://github.com/KsaweryAiR/Comparison-of-RGB-D-cameras-and-3D-map-construction-methods.git
 ```
 
+```bash
+cd Comparison-of-RGB-D-cameras-and-3D-map-construction-methods/
+```
+
 ## 🐳 Docker – Instalacja dla każdej kamery
 
 ### 1️⃣ Azure Kinect DK
 
-#### 🔧 Budowanie obrazu
+#### 🔧 Budowanie obrazu (Podłącz Azure Kinect DK do usb a inne odłącz!!)
 
 ```bash
-cd Comparison-of-RGB-D-cameras-and-3D-map-construction-methods/camera_inst
+cd camera_installer/kinect-camera-docker/
 ```
 
 ```bash
-docker build -t azure_kinect_cam docker/azure_kinect/
+docker build -t kinect_rviz .
 ```
-
 #### 🚀 Uruchamianie kontenera
-
 ```bash
-docker run -it --rm --net=host --privileged \
-  -v /dev:/dev \
-  --device-cgroup-rule='c 81:* rmw' \
-  azure_kinect_cam
+bash run_docker.sh
+```
+Akceptacja i instalacja zasad użytkowania (w kontenerze)
+```bash
+cd azure_kinect_notes
 ```
 
-> ⚠️ Upewnij się, że masz zainstalowany `libk4a` oraz `k4a-tools` w systemie hosta lub dodaj je do Dockera.
-
----
-
-### 2️⃣ Orbbec Femto Mega
-
-#### 🔧 Budowanie obrazu
-
 ```bash
-docker build -t orbbec_femto_cam docker/orbbec_femto/
+bash install_azure_kinect_camera_u_22.04.sh
+```
+Budowa paczki ros driver kinect
+
+```bash ros2_ws
+cd .. /cd ros2_ws
 ```
 
-#### 🚀 Uruchamianie kontenera
-
 ```bash
-docker run -it --rm --net=host --privileged \
-  -v /dev:/dev \
-  orbbec_femto_cam
+source /opt/ros/humble/setup.bash
 ```
 
-> 📄 Zainstaluj SDK od Orbbeca i odpowiedni `udev` rules file (może być skopiowany do kontenera).
-
----
-
-### 3️⃣ Intel RealSense D435
-
-#### 🔧 Budowanie obrazu
-
 ```bash
-docker build -t realsense_cam docker/realsense_d435/
+colcon build
 ```
 
-#### 🚀 Uruchamianie kontenera
-
 ```bash
-docker run -it --rm --net=host --privileged \
-  -v /dev:/dev \
-  --device=/dev/video0 \
-  realsense_cam
-```
-
-> 📦 Upewnij się, że biblioteka `librealsense2` została poprawnie zainstalowana w kontenerze.
-
----
-
-## 🧠 ROS 2 Paczki
-
-```bash
-ros2_ws/
-└── src/
-    ├── camera_processing_pkg/
-    └── camera_launch_pkg/
-```
-
-### 🛠️ Budowanie workspace
-
-```bash
-cd ros2_ws
-colcon build --symlink-install
 source install/setup.bash
 ```
 
----
+### 2️⃣ Orbbec Femto Mega
 
-## ✅ TODO
+#### 🔧 Budowanie obrazu (Podłącz Orbbec Femto Mega do usb a inne odłącz!!)
 
-- [ ] Dodać launchery dla każdej kamery w `camera_launch_pkg`
-- [ ] Dodać dokumentację do `camera_processing_pkg`
-- [ ] Uzupełnić konfiguracje RViz
-- [ ] Ustawić automatyczne uruchamianie z ROS 2 launch
+```bash
+cd camera_installer/orbbec-camera-docker/
+```
 
----
+```bash
+docker build -t orbbec_rviz .
+```
 
-## 📚 Wymagania
+#### 🚀 Uruchamianie kontenera
+```bash
+bash run_docker.sh
+```
+Gotowy do działania :)
 
-- ROS 2 Humble (w Dockerze lub lokalnie)
-- Docker + opcjonalnie NVIDIA Container Toolkit
-- SDK i `udev` rules do: Azure Kinect, Orbbec Femto Mega, RealSense D435
+### 3️⃣ Intel RealSense D435
 
----
+#### 🔧 Budowanie obrazu (Podłącz Intel RealSense D435 do usb a inne odłącz!!)
 
-## 👤 Autorzy
+```bash
+cd camera_installer/intel-camera-docker/
+```
 
-- Imię i nazwisko / nick (Tu wpisz siebie, Mój Panie)
-- Współpracownicy (opcjonalnie)
+```bash
+docker build -t intel_rviz .
+```
 
----
+#### 🚀 Uruchamianie kontenera
+```bash
+bash run_docker.sh
+```
+Gotowy do działania :)
 
-## 📝 Licencja
+### Po instalacji można podłączyć wszystkie kamery na raz
 
-Projekt dostępny na licencji [MIT / BSD-3 / inna].
+<img src="img/chmura.png" style="width: 80%; height: 80%;"> 
+
+### Zebrane dane można wykorzystać do budowy map 3D 
+
+Bonxai
+https://github.com/facontidavide/Bonxai
+
+UFOMap
+https://github.com/UnknownFreeOccupied/ufomap
+
+<img src="img/map1.png" style="width: 80%; height: 80%;"> 
+<img src="img/map2.png" style="width: 80%; height: 80%;"> 
 
 
