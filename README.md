@@ -108,6 +108,8 @@ Gotowy do działania :)
 
 ### Po instalacji można podłączyć wszystkie kamery na raz
 
+<img src="img/chmura.png" style="width: 80%; height: 80%;"> 
+
 ### Zebrane dane można wykorzystać do budowy map 3D 
 
 Bonxai
@@ -116,5 +118,7 @@ https://github.com/facontidavide/Bonxai
 UFOMap
 https://github.com/UnknownFreeOccupied/ufomap
 
+<img src="img/map1.png" style="width: 80%; height: 80%;"> 
+<img src="img/map2.png" style="width: 80%; height: 80%;"> 
 
 
