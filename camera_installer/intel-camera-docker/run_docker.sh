@@ -23,6 +23,6 @@ docker run -it \
   --privileged \
   --device=/dev/bus/usb \
   -e DISPLAY=$DISPLAY \
-  --name kinect_rviz_container \
+  --name intel_rviz_container \
   intel_rviz \
   bash
