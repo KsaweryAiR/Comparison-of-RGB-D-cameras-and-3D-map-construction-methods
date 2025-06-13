@@ -13,18 +13,6 @@ W tym repozytorium znajdują się pliki `Dockerfile` dla trzech różnych kamer 
 - `camera_processing_pkg` – obsługa przetwarzania danych z kamer
 - `camera_launch_pkg` – konfiguracja i uruchamianie kamer
 
-> 🔧 **TODO**: Uzupełnij dokładne nazwy kamer i funkcje paczek.
-
----
-
-## 🖼️ Przykładowe zdjęcia / Wizualizacje
-
-Dodaj tutaj zrzuty ekranu z RViz, graficzne diagramy przepływu danych lub inne ilustracje pokazujące działanie systemu.
-
-```
-📷 [Tutaj dodaj obrazek z RViz]
-```
-
 ### Wymagania:
 - Docker
 - System z obsługą USB 
@@ -43,16 +31,16 @@ cd Comparison-of-RGB-D-cameras-and-3D-map-construction-methods/
 
 ### 1️⃣ Azure Kinect DK
 
-#### 🔧 Budowanie obrazu (Podłącz kamerę do usb!!)
+#### 🔧 Budowanie obrazu (Podłącz Azure Kinect DK do usb a inne odłącz!!)
 
 ```bash
 cd camera_installer/kinect-camera-docker/
 ```
-instalacja systemu i driver kamery wraz z wszystkimi zależnościami
+
 ```bash
 docker build -t kinect_rviz .
 ```
-włączenie kontenera
+#### 🚀 Uruchamianie kontenera
 ```bash
 bash run_docker.sh
 ```
@@ -82,105 +70,51 @@ colcon build
 source install/setup.bash
 ```
 
-#### 🚀 Uruchamianie kontenera
-
-```bash
-docker run -it --rm --net=host --privileged \
-  -v /dev:/dev \
-  --device-cgroup-rule='c 81:* rmw' \
-  azure_kinect_cam
-```
-
-> ⚠️ Upewnij się, że masz zainstalowany `libk4a` oraz `k4a-tools` w systemie hosta lub dodaj je do Dockera.
-
----
-
 ### 2️⃣ Orbbec Femto Mega
 
-#### 🔧 Budowanie obrazu
+#### 🔧 Budowanie obrazu (Podłącz Orbbec Femto Mega do usb a inne odłącz!!)
 
 ```bash
-docker build -t orbbec_femto_cam docker/orbbec_femto/
+cd camera_installer/orbbec-camera-docker/
+```
+
+```bash
+docker build -t orbbec_rviz .
 ```
 
 #### 🚀 Uruchamianie kontenera
-
 ```bash
-docker run -it --rm --net=host --privileged \
-  -v /dev:/dev \
-  orbbec_femto_cam
+bash run_docker.sh
 ```
-
-> 📄 Zainstaluj SDK od Orbbeca i odpowiedni `udev` rules file (może być skopiowany do kontenera).
-
----
+Gotowy do działania :)
 
 ### 3️⃣ Intel RealSense D435
 
-#### 🔧 Budowanie obrazu
+#### 🔧 Budowanie obrazu (Podłącz Intel RealSense D435 do usb a inne odłącz!!)
 
 ```bash
-docker build -t realsense_cam docker/realsense_d435/
+cd camera_installer/intel-camera-docker/
+```
+
+```bash
+docker build -t intel_rviz .
 ```
 
 #### 🚀 Uruchamianie kontenera
-
 ```bash
-docker run -it --rm --net=host --privileged \
-  -v /dev:/dev \
-  --device=/dev/video0 \
-  realsense_cam
+bash run_docker.sh
 ```
+Gotowy do działania :)
 
-> 📦 Upewnij się, że biblioteka `librealsense2` została poprawnie zainstalowana w kontenerze.
+### Po instalacji można podłączyć wszystkie kamery na raz
 
----
+### Zebrane dane można wykorzystać do budowy map 3D 
 
-## 🧠 ROS 2 Paczki
+Bonxai
+https://github.com/facontidavide/Bonxai
 
-```bash
-ros2_ws/
-└── src/
-    ├── camera_processing_pkg/
-    └── camera_launch_pkg/
-```
+UFOMap
+https://github.com/UnknownFreeOccupied/ufomap
 
-### 🛠️ Budowanie workspace
-
-```bash
-cd ros2_ws
-colcon build --symlink-install
-source install/setup.bash
-```
-
----
-
-## ✅ TODO
-
-- [ ] Dodać launchery dla każdej kamery w `camera_launch_pkg`
-- [ ] Dodać dokumentację do `camera_processing_pkg`
-- [ ] Uzupełnić konfiguracje RViz
-- [ ] Ustawić automatyczne uruchamianie z ROS 2 launch
-
----
-
-## 📚 Wymagania
-
-- ROS 2 Humble (w Dockerze lub lokalnie)
-- Docker + opcjonalnie NVIDIA Container Toolkit
-- SDK i `udev` rules do: Azure Kinect, Orbbec Femto Mega, RealSense D435
-
----
-
-## 👤 Autorzy
-
-- Imię i nazwisko / nick (Tu wpisz siebie, Mój Panie)
-- Współpracownicy (opcjonalnie)
-
----
-
-## 📝 Licencja
-
-Projekt dostępny na licencji [MIT / BSD-3 / inna].
 
 
