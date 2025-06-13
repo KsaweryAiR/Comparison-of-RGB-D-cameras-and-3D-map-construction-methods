@@ -32,7 +32,7 @@ Dodaj tutaj zrzuty ekranu z RViz, graficzne diagramy przepływu danych lub inne 
 ## Pobierz repozytorium
 
 ```bash
-git clone
+git clone https://github.com/KsaweryAiR/Comparison-of-RGB-D-cameras-and-3D-map-construction-methods.git
 ```
 
 ## 🐳 Docker – Instalacja dla każdej kamery
@@ -42,7 +42,7 @@ git clone
 #### 🔧 Budowanie obrazu
 
 ```bash
-cd 
+cd Comparison-of-RGB-D-cameras-and-3D-map-construction-methods/camera_inst
 ```
 
 ```bash
