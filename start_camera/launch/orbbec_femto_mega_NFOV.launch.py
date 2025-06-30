@@ -9,6 +9,9 @@ def generate_launch_description():
     orbec_camera_launch = ExecuteProcess(
         cmd=[
             'ros2', 'launch', 'orbbec_camera', 'femto_mega.launch.py',
+            'depth_width:=640',
+            'depth_height:=576',
+            'depth_fps:=30',
             'enable_colored_point_cloud:=true',
         ],
         output='screen'
@@ -16,7 +19,7 @@ def generate_launch_description():
 
     # Uruchomienie ros2 bag record --all
     rosbag_record = ExecuteProcess(
-        cmd=['ros2', 'bag', 'record', '--all', '-o', 'femto_mega_bag'],
+        cmd=['ros2', 'bag', 'record', '--all', '-o', 'femto_mega_NFOV_bag'],
         output='screen'
     )
 
